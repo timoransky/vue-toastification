@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
+import Toast from "../components/VtToast.vue"
 import { InferDefaults } from "../types/vue-helper"
 
 import type { ToastOptions } from "../types/toast"
@@ -38,6 +39,7 @@ export const TOAST_DEFAULTS: Required<InferDefaults<Readonly<ToastOptions>>> = {
   onClick: emptyFunction,
   onClose: emptyFunction,
   type: TYPE.DEFAULT,
+  description: "",
 }
 
 export const TOAST_CONTAINER_DEFAULTS: Required<
@@ -54,4 +56,5 @@ export const TOAST_CONTAINER_DEFAULTS: Required<
   toastDefaults: () => ({}),
   transition: `${VT_NAMESPACE}__bounce`,
   defaultToastProps: /* istanbul ignore next */ () => ({}),
+  rootComponent: () => Toast,
 }

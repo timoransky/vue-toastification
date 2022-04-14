@@ -140,6 +140,7 @@ const asContainerProps = (
     filterBeforeCreate,
     filterToasts,
     containerClassName,
+    rootComponent,
     ...defaultToastProps
   } = options
   const containerProps = {
@@ -153,6 +154,7 @@ const asContainerProps = (
     filterBeforeCreate,
     filterToasts,
     containerClassName,
+    rootComponent,
     defaultToastProps,
   }
   const keys = Object.keys(containerProps) as (keyof ToastContainerOptions)[]

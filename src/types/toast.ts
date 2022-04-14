@@ -87,6 +87,10 @@ export declare interface BaseToastOptions
    * If true, switches the toast contents from right to left. Defaults to false.
    */
   rtl?: boolean
+  /**
+   *  Optional description
+   */
+  description?: string
 }
 
 export declare interface ToastOptions extends BaseToastOptions {

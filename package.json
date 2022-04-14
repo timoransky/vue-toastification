@@ -1,9 +1,9 @@
 {
-  "name": "vue-toastification",
+  "name": "@brackets/vue-toastification",
   "version": "2.0.0-rc.5",
   "private": false,
-  "description": "Toasts for Vue made easy!",
-  "author": "Gustavo Maronato",
+  "description": "Toasts for Vue made easy with custom component!",
+  "author": "Brackets",
   "scripts": {
     "dev": "MODE=demo yarn vite",
     "prebuild": "rimraf ./dist",
@@ -76,9 +76,9 @@
     "vue": "^3.0.2"
   },
   "bugs": {
-    "url": "https://github.com/Maronato/vue-toastification/issues"
+    "url": "https://github.com/timoransky/vue-toastification/issues"
   },
-  "homepage": "https://github.com/Maronato/vue-toastification#readme",
+  "homepage": "https://github.com/timoransky/vue-toastification#readme",
   "keywords": [
     "vue",
     "notification",
@@ -87,6 +87,6 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Maronato/vue-toastification.git"
+    "url": "https://github.com/timoransky/vue-toastification.git"
   }
 }

@@ -5,7 +5,8 @@
         :transition="containerProps.transition"
         :class="toastClasses[pos]"
       >
-        <Toast
+        <component
+          :is="rootComponent"
           v-for="toast in positionToasts[pos]"
           :key="toast.id"
           v-bind="toast"
@@ -32,7 +33,6 @@ import type { ToastID } from "../types/common"
 import type { ToastOptionsAndContent } from "../types/toast"
 import type { ToastContainerOptions } from "../types/toastContainer"
 
-import Toast from "./VtToast.vue"
 import VtTransition from "./VtTransition.vue"
 
 interface ToastContainerProps {
@@ -47,6 +47,7 @@ interface ToastContainerProps {
   newestOnTop?: ToastContainerOptions["newestOnTop"]
   toastDefaults?: ToastContainerOptions["toastDefaults"]
   transition?: ToastContainerOptions["transition"]
+  rootComponent?: ToastContainerOptions["rootComponent"]
 }
 
 const props = withDefaults(defineProps<ToastContainerProps>(), {
@@ -61,6 +62,7 @@ const props = withDefaults(defineProps<ToastContainerProps>(), {
   newestOnTop: TOAST_CONTAINER_DEFAULTS.newestOnTop,
   toastDefaults: TOAST_CONTAINER_DEFAULTS.toastDefaults,
   transition: TOAST_CONTAINER_DEFAULTS.transition,
+  rootComponent: TOAST_CONTAINER_DEFAULTS.rootComponent,
 })
 
 const positions = Object.values(POSITION)
