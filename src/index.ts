@@ -1,6 +1,7 @@
 import type { ToastInterface } from "./ts/interface"
 import type { PluginOptions } from "./types/plugin"
 
+import VtToast from "./components/VtToast.vue"
 import "./scss/index.scss"
 import {
   createToastInstance,
@@ -22,4 +23,5 @@ export {
   TYPE,
   PluginOptions,
   ToastInterface,
+  VtToast,
 }

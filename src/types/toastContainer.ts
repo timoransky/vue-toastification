@@ -1,3 +1,5 @@
+import { Component } from "vue"
+
 import type { TYPE } from "../ts/constants"
 import type { ClassNames, EventBusable } from "./common"
 import type {
@@ -55,6 +57,12 @@ export declare interface BaseToastContainerOptions extends EventBusable {
    * Keep in mind that there is one container for each possible toast position.
    */
   containerClassName?: ClassNames
+  /**
+   * Custom component support
+   *
+   * Pass custom component you want to use
+   */
+  rootComponent?: Component
 }
 
 export declare interface ToastContainerOptions

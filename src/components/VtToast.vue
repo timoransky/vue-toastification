@@ -1,25 +1,37 @@
 <template>
-  <div ref="el" :class="classes" @click="clickHandler">
-    <Icon v-if="icon" :custom-icon="icon" :type="type" />
-    <div :role="accessibility.toastRole || 'alert'" :class="bodyClasses">
-      <template v-if="typeof content === 'string'">{{ content }}</template>
-      <component
-        :is="getVueComponentFromObj(content)"
-        v-else
-        :toast-id="id"
-        v-bind="getProp(content, 'props', {})"
-        v-on="getProp(content, 'listeners', {})"
-        @close-toast="closeToast"
-      />
-    </div>
-    <CloseButton
-      v-if="!!closeButton"
-      :component="closeButton"
-      :class-names="closeButtonClassName"
+  <div v-bind="$attrs" ref="el" :class="classes" @click="clickHandler">
+    <slot
+      :type="type"
+      :close-toast="closeToast"
+      :toast-id="id"
       :show-on-hover="showCloseButtonOnHover"
-      :aria-label="accessibility.closeButtonLabel"
-      @click.stop="closeToast"
-    />
+      :icon="icon"
+      :closeButton="closeButton"
+      :role="accessibility.toastRole"
+      :content="content"
+      :description="description"
+    >
+      <Icon v-if="icon" :custom-icon="icon" :type="type" />
+      <div :role="accessibility.toastRole || 'alert'" :class="bodyClasses">
+        <template v-if="typeof content === 'string'">{{ content }}</template>
+        <component
+          :is="getVueComponentFromObj(content)"
+          v-else
+          :toast-id="id"
+          v-bind="getProp(content, 'props', {})"
+          v-on="getProp(content, 'listeners', {})"
+          @close-toast="closeToast"
+        />
+      </div>
+      <CloseButton
+        v-if="!!closeButton"
+        :component="closeButton"
+        :class-names="closeButtonClassName"
+        :show-on-hover="showCloseButtonOnHover"
+        :aria-label="accessibility.closeButtonLabel"
+        @click.stop="closeToast"
+      />
+    </slot>
     <ProgressBar
       v-if="timeout"
       :is-running="isRunning"
@@ -71,6 +83,7 @@ interface ToastProps {
   timeout?: ToastOptionsAndContent["timeout"]
   toastClassName?: ToastOptionsAndContent["toastClassName"]
   type?: ToastOptionsAndContent["type"]
+  description?: ToastOptionsAndContent["description"]
 }
 
 const props = withDefaults(defineProps<ToastProps>(), {
@@ -97,6 +110,7 @@ const props = withDefaults(defineProps<ToastProps>(), {
   timeout: TOAST_DEFAULTS.timeout,
   toastClassName: TOAST_DEFAULTS.toastClassName,
   type: TYPE.DEFAULT,
+  description: TOAST_DEFAULTS.description,
 })
 
 const el = ref<HTMLElement>()
