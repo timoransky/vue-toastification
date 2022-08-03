@@ -1,6 +1,6 @@
 {
   "name": "@brackets/vue-toastification",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "private": false,
   "description": "Toasts for Vue made easy with custom component!",
   "author": "Brackets",
