@@ -3,7 +3,7 @@
   "version": "2.0.2",
   "private": false,
   "description": "Toasts for Vue made easy with custom component!",
-  "author": "Brackets",
+  "author": "timoransky",
   "scripts": {
     "dev": "MODE=demo yarn vite",
     "prebuild": "rimraf ./dist",
